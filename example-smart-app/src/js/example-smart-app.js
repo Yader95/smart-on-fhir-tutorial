@@ -33,7 +33,7 @@
 
         $.when(pt, obv, device).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
-          cosole.log(device);
+          console.log(device);
           var gender = patient.gender;
           var devicestring = [];
           for (var i = 0;i < device.length; i++){ 
