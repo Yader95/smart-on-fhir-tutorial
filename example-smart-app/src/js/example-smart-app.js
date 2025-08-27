@@ -31,8 +31,6 @@
                       )}
 
 
-        */
-
         $.when(pt, obv, device).fail(onError);
 
         $.when(pt, obv, device).done(function(patient, obv) {
