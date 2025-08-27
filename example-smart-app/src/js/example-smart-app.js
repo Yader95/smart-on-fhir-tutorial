@@ -27,9 +27,7 @@
                   });
 
          var device = smart.patient.api.fetchAll({
-                      type: 'Device'
-                      });
-
+                      type: 'Device' });
 
         $.when(pt, obv, device).fail(onError);
 
@@ -37,7 +35,10 @@
           var byCodes = smart.byCodes(obv, 'code');
           cosole.log(device);
           var gender = patient.gender;
-
+          var devicestring = [];
+          for (var i = 0;i < device.length; i++){ 
+          devicestring.push(device[i].deviceName[0].name);
+          }
           var fname = '';
           var lname = '';
 
@@ -59,6 +60,7 @@
           p.fname = fname;
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
+          p.device = devicestring.join(", ");
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
@@ -96,6 +98,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       temp: {value: ''}
+      device: {value: ''}
     };
   }
 
@@ -140,6 +143,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
      $('#temp').html(p.temp);
+    $('#device').html(p.device);
   };
 
 })(window);
