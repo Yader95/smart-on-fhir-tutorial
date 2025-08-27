@@ -31,7 +31,7 @@
 
         $.when(pt, obv, device).fail(onError);
 
-        $.when(pt, obv, device).done(function(patient, obv) {
+        $.when(pt, obv, device).done(function(patient, obv, device) {
           var byCodes = smart.byCodes(obv, 'code');
           console.log(device);
           var gender = patient.gender;
