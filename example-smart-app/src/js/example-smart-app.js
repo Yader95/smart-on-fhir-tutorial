@@ -27,7 +27,7 @@
                   });
 
          var device = smart.patient.api.fetchAll({
-                      type: 'Device' });
+                      type: 'Device' })
 
         $.when(pt, obv, device).fail(onError);
 
